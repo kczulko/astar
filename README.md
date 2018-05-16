@@ -1,5 +1,9 @@
 # A* algorithm
 
+## Description
+
+This repository contains A* algorithm implementation in Scala.
+
 ## Howto execute solution
 
 ### Docker
@@ -19,15 +23,28 @@ it is possible to choose one of them as the last argument (as it was done in the
 1. Go to project's root directory.
 1. Execute `sbt 'run ./src/universal/10.txt'` to run sample no. 10
 
+## Sample files
+
+Sample files used to execute an algorithm are located under `src/universal` directory.
 
 ## Build
 
 ```bash
-sbt clean compile
+$ sbt clean compile
 ``` 
+
+## Docker package
+
+1. Run `sbt docker:publishLocal`
+2. Tag recently created image, e.g. `docker tag intel-astar:0.1 <username>/intel-astar:0.1`
+3. Publish tagged image to docker hub, e.g. 
+```
+$ docker login <username>
+$ docker push <username>/intel-astar:0.1
+```
 
 ## Tests
 
-```aidl
-sbt test
+```bash
+$ sbt test
 ```
