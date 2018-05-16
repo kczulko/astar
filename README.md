@@ -40,7 +40,7 @@ $ sbt clean compile
 3. Publish tagged image to docker hub, e.g. 
 ```
 $ docker login <username>
-$ docker push <username>/intel-astar:0.1
+$ docker push <username>/intel-a-star:0.1
 ```
 
 ## Tests
