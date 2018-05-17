@@ -11,7 +11,7 @@ table of contents
 * [sample files](#sample-files)
 * [packaging docker image](#docker-packaging)
 * [build](#build)
-* [tests](#tests)
+* [Tests](#Tests)
 
 description
 ===========
@@ -139,7 +139,7 @@ $ docker login <username>
 $ docker push <username>/intel-a-star:0.1
 ```
 
-tests
+Tests
 =====
 
 ```bash
