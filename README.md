@@ -135,7 +135,7 @@ docker packaging
 1. Run `sbt docker:publishLocal`
 2. Tag recently created image, e.g. `docker tag intel-a-star:0.1 <username>/intel-a-star:0.1`
 3. Publish tagged image to docker hub, e.g. 
-```
+```bash
 $ docker login <username>
 $ docker push <username>/intel-a-star:0.1
 ```
