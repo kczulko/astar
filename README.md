@@ -1,10 +1,18 @@
 # A* algorithm
 
-## Description
+Table of contents
+=================
+[Description](#description)
+[HOWTO execute the programm](#howto-execute-the-algorithm)
+
+
+description
+-----------
 
 This repository contains A* algorithm implementation in Scala.
 
-## Howto execute solution
+howto execute the algorithm
+---------------------------
 
 ### Docker
 
