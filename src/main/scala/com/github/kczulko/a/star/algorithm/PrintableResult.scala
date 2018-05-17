@@ -43,7 +43,7 @@ case class PrintableResult(maze: Maze, path: List[Cell], expandedLocationsAmount
       |
       |$separator
       |
-      |Expanded locations number: $expandedLocationsAmount
+      |Expanded locations amount: $expandedLocationsAmount
       |
     """.stripMargin
   }
