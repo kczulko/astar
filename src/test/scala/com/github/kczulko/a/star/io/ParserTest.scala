@@ -37,7 +37,7 @@ class ParserTest extends FlatSpec with Matchers with EitherValues {
       "Invalid number of rows while parsing maze. Expected 2, but was 3"
   }
 
-  it should "fail when at least for one row has different number columns than it was declared" in {
+  it should "fail when at least one row has different number of columns than it was declared" in {
     val input = """
                   |2
                   |2
