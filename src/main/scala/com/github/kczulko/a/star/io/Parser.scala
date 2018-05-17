@@ -26,7 +26,7 @@ object Parser {
   }
 
   private def parseMaze(rows: Int, cols: Int, mazeRows: List[String]): Either[String, Maze] = {
-    val cellsE = mazeRows.map(_.replace(" ", "")).zipWithIndex.map {
+    val cellsD = mazeRows.map(_.replace(" ", "")).zipWithIndex.map {
       case (row, ri) =>
         val cellsInRow = row.zipWithIndex.toList.map {
           case r @ ('_' | 's' | 'g' | 'x', ci) =>  \/-(Cell(ri, ci, r._1))
@@ -41,7 +41,7 @@ object Parser {
     }.sequenceU
 
     for {
-      cells <- cellsE.toEither
+      cells <- cellsD.toEither
       _     <- Either.cond(
                  cells.size == rows,
                  cells,

@@ -6,15 +6,16 @@ case class PrintableResult(maze: Maze, path: List[Cell], expandedLocationsAmount
 
   def mazeWithPath: Maze = {
     val pathNodes = path.toSet
+    def eligibleForIdentifierReplacement: Cell => Boolean = cell =>
+      pathNodes.contains(cell) && !cell.isStartingPoint && !cell.isGoalPoint
 
     maze.copy(
       cells = for {
         row <- maze.cells
-      } yield row.map { cell =>
-        if (pathNodes.contains(cell) && !cell.isStartingPoint && !cell.isGoalPoint)
+      } yield row.collect {
+        case cell if eligibleForIdentifierReplacement(cell) =>
           cell.copy(charIdentifier = '*')
-        else
-          cell
+        case cell => cell
       }
     )
   }

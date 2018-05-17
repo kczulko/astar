@@ -12,15 +12,15 @@ object AStar {
     @tailrec
     def loop(actualState: AStarState): Either[String, AStarState] =
       actualState.getOpenCellWithLowestCost match {
-        case Some(last) if last == actualState.goal => Right(actualState)
         case None => Left("There is no solution for the given maze.")
+        case Some(last) if last == actualState.goal => Right(actualState)
         case Some(current) =>
           val receipt = for {
             open       <- removeFromOpen(current)
             closed     <- addToClosed(current)
             neighbours =  maze.findValidNeighboursOf(current) &~ closed &~ open
             _          <- addToOpen(neighbours)
-            promising  <- filterPromisingOnlyNeighbours(neighbours)(current)
+            promising  <- filterPromisingNeighbours(neighbours)(current)
             _          <- updateMetricsAndPath(promising)(current)
           } yield ()
 
@@ -37,12 +37,12 @@ object AStar {
           goal = goal,
           open = Set(start),
           closed = Set.empty,
-          g = Map(start -> 0),
-          f = Map.empty,
+          gScores = Map(start -> 0),
+          fScores = Map.empty,
           cameFrom = Map.empty
         )
-      path  <- loop(initialState)
-    } yield path
+      finalState  <- loop(initialState)
+    } yield finalState
   }
 
   def retrievePath(as: AStarState): Either[String, List[Cell]] = {
@@ -56,6 +56,6 @@ object AStar {
         case _ => Left(s"Cannot retrieve path from given state: $as")
       }
 
-    loop(as.goal, List(as.goal))
+    loop(goal, List(goal))
   }
 }

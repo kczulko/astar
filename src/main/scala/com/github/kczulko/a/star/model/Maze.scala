@@ -1,15 +1,14 @@
 package com.github.kczulko.a.star.model
 
+import scalaz.ListT
+import scalaz.std.list._
+
 case class Maze(colsCount: Int, cells: List[List[Cell]]) {
 
-  def findNeighboursFor(cell: Cell): Set[Cell] = {
-    (cells.flatten.toSet - cell).filter {
-      c => (c.colDistanceTo(cell) <= 1) && (c.rowDistanceTo(cell) <= 1)
-    }
-  }
+  private lazy val setOfCells = cells.flatten.toSet
 
   def findValidNeighboursOf(cell: Cell): Set[Cell] =
-    (cells.flatten.toSet - cell).filter {
+    (setOfCells - cell).filter {
       c => (c.colDistanceTo(cell) <= 1) &&
               (c.rowDistanceTo(cell) <= 1) &&
                   !c.isForbidden
@@ -35,7 +34,10 @@ case class Maze(colsCount: Int, cells: List[List[Cell]]) {
       case _ => Left(errWhenEmpty)
     }
 
-  override def toString: String = {
-    cells.map(_.map(_.charIdentifier).mkString(" ")).mkString("\n")
-  }
+  override def toString: String =
+    ListT(cells)
+      .map(_.charIdentifier)
+      .run
+      .map(_.mkString(" "))
+      .mkString("\n")
 }
