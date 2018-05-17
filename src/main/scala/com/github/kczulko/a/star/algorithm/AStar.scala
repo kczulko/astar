@@ -18,7 +18,7 @@ object AStar {
           val receipt = for {
             open       <- removeFromOpen(current)
             closed     <- addToClosed(current)
-            neighbours =  maze.findValidNeighboursOf(current) &~ closed &~ open
+            neighbours =  maze.findValidNeighboursOf(current) diff closed diff open
             _          <- addToOpen(neighbours)
             promising  <- filterPromisingNeighbours(neighbours)(current)
             _          <- updateMetricsAndPath(promising)(current)
