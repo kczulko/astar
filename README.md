@@ -24,8 +24,8 @@ The program is written in pure functional style
 (except of console io effect control in main function...).
 Program is [referentially transparent](https://en.wikipedia.org/wiki/Referential_transparency)
 and this was satisfied because of:
-* immutability - no var or setters
-* pure functions - for the given input they return always the same output
+* immutability - no vars or setters
+* pure functions - for the given input they return always the same result
 * recursion | `@tailrecursion` - thanks to that algorithms/functions are strict,
 safe and self explaining
 
