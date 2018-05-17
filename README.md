@@ -67,9 +67,14 @@ questions and answers
 
 3) What you used for tie-breakers when you had two nodes in your priority queue with the same priority.
 
-   Priority queue wasn't used in this algorithm. `TraversableOnce[A+]::minBy` function on `Set` structure was used instead.
+   Priority queue wasn't used in this algorithm. `TraversableOnce[+A]::minBy` function on `Set` structure was used instead.
 
 4) What are the advantages of having a more sophisticated heuristic?  Are there any disadvantages?
+
+   Question is what does it mean *more sophisticated heuristic*? When heuristic is consistent then
+   always the shortest one path will be found. In the opposite case (when the heuristic function is not
+   monotonic) algorithm gets a little bit more complicated (we need to take under consideration nodes
+   from closed set as well and update their metrics).
 
 5) How do you know that a heuristic is admissable?  How do you know that a heuristic is monotonic?
 
@@ -109,6 +114,38 @@ $ docker run kczulko/intel-a-star:0.1 9.txt
 
 Sample files from the task definition tarball were packaged to docker container so
 it is possible to choose one of them as the last argument (as it was done in the example).
+
+Execution example:
+```bash
+$ docker run kczulko/intel-a-star:0.1 4.txt
+
+Input maze:
+
+_ s _ _ _
+x x x x _
+_ x x x _
+_ _ g _ _
+
+==========
+
+Maze with path from 's' to 'g' (indicated by '*' character):
+
+_ s * * _
+x x x x *
+_ x x x *
+_ _ g * _
+
+==========
+
+Path found (rows and cols are indexed from 0):
+
+List(Cell(0,1,s), Cell(0,2,_), Cell(0,3,_), Cell(1,4,_), Cell(2,4,_), Cell(3,3,_), Cell(3,2,g))
+
+==========
+
+Expanded locations number: 9
+
+```
 
 sbt
 ---

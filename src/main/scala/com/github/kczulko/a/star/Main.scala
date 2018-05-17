@@ -6,6 +6,7 @@ import com.github.kczulko.a.star.io.{FileReader, Parser}
 object Main {
 
   def main(args: Array[String]): Unit = {
+
     lazy val result = for {
       filepath <- FileReader.getFilepath(args)
       lines <- FileReader.readLines(filepath)
