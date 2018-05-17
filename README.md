@@ -4,7 +4,7 @@ table of contents
 =================
 * [description](#description)
   * [external dependencies](#external-dependencies)
-  * [questions & answers](#questions-&-answers)
+  * [questions & answers](#questions-and-answers)
 * [HOWTO run the algorithm](#howto-run-the-algorithm)
   * [docker](#docker)
   * [Sbt](#sbt)
@@ -53,8 +53,8 @@ External dependencies:
     * [Disjunction (`-\/` or `\/-`)](http://appliedscala.com/blog/2016/scalaz-disjunctions/)
 1. [scalatest](http://www.scalatest.org/) - testing library for Scala
 
-questions & answers
--------------------
+questions and answers
+---------------------
 
 1) How to build and run your code.
 
