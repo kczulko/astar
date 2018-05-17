@@ -143,7 +143,7 @@ List(Cell(0,1,s), Cell(0,2,_), Cell(0,3,_), Cell(1,4,_), Cell(2,4,_), Cell(3,3,_
 
 ==========
 
-Expanded locations number: 9
+Expanded locations amount: 9
 
 ```
 
