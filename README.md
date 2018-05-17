@@ -73,7 +73,8 @@ questions & answers
 
 5) How do you know that a heuristic is admissable?  How do you know that a heuristic is monotonic?
 
-   Heuristic is admissable when following equation is satisfied (heuristic satisfies consistency rule):
+   Heuristic is admissable when *it never overestimates the actual minimal cost of reaching the goal*.
+   Heuristic is monotonic when following equation is satisfied (heuristic satisfies consistency rule):
 
    h(x) <= d(x,y) + h(y)
 
@@ -88,7 +89,7 @@ questions & answers
 
 6) Does the way you break ties matter?
 
-   It doesn't.
+   In case of this heuristic it doesn't.
 
 howto run the algorithm
 =======================
