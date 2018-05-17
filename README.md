@@ -11,7 +11,7 @@ table of contents
 * [sample files](#sample-files)
 * [packaging docker image](#docker-packaging)
 * [build](#build)
-* [Tests](#Tests)
+* [tests](#tests)
 
 description
 ===========
@@ -29,7 +29,7 @@ and this was satisfied because of:
 * recursion | `@tailrecursion` - thanks to that algorithms/functions are strict,
 safe and self explaining
 
-# remark
+## remark!
 
 Diagonal moves within the maze (next to horizontal|vertical ones) are acceptable since
 such constraint wasn't pointed out within the task definition. However,
@@ -139,7 +139,7 @@ $ docker login <username>
 $ docker push <username>/intel-a-star:0.1
 ```
 
-Tests
+tests
 =====
 
 ```bash
