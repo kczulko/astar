@@ -12,9 +12,11 @@ object FileReader {
     )
   }
 
-  def readLines(filepath: String): Either[Throwable, List[String]] = {
+  def readLines(filepath: String): Either[String, List[String]] = {
     Try(scala.io.Source.fromFile(filepath))
       .toEither
+      .left
+      .map(_.getMessage)
       .map { bs =>
         val lines = bs.getLines().toList
         bs.close()
